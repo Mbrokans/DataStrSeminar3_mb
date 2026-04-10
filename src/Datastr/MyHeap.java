@@ -104,4 +104,27 @@ public class MyHeap <Ttype>{
 			}
 		}
 	}
+	public void print() throws Exception {
+		if(isEmpty()) {
+			throw new Exception("kaudz ir tulksa un nav elementu, ko printet");
+		}
+		printHelper(rootNode);
+	}
+	private void printHelper(MyNode node) {
+		if(node!=null) {
+			System.out.println("P: "+ node.getElement());
+			if(node.getLeftChildNode()!=null) {
+				System.out.println("LC: " + node.getLeftChildNode().getElement());
+				printHelper(node.getLeftChildNode());
+			}
+			if(node.getRightChildNode()!=null) {
+				System.out.println("RC:  "+ node.getRightChildNode().getElement());
+				printHelper(node.getRightChildNode());
+			}
+		}
+	}
+	
+	
+	
+	
 }

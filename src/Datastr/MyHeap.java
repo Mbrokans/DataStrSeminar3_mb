@@ -86,14 +86,22 @@ public class MyHeap <Ttype>{
 				newNode.setParentNode(currentNode);
 				lastNode = newNode;
 			}
-			
-			
-			
-			
 			//TODO reheapUp(newNode);
 			howManyElements++;
 			
 		}
 		
+	}
+	
+	private void reheapUp(MyNode node) {
+		if(node !=null && node.getParentNode()!=null) {
+			MyNode tempParentNode= node.getParentNode();
+			if(((Comparable)tempParentNode.getElement()).compareTo(node.getElement())<0) {
+				Ttype tempElement= (Ttype)tempParentNode.getElement();
+				tempParentNode.setElement(node.getElement());
+				node.setElement(tempElement);
+				reheapUp(tempParentNode);
+			}
+		}
 	}
 }
